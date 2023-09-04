@@ -1,0 +1,6 @@
+Reference for CSS colors for the website.
+--text: #000000;
+--background: #ffffff;
+--primary: #fff447;
+--secondary: #dedede;
+--accent: #787878;
