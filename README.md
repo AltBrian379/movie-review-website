@@ -20,6 +20,10 @@ A full stack web application to implement a movie review website. This project e
 - Google Cloud
 - The Movie Database
 
+### Environment
+- Linux running under WSL.
+-  
+
 ## User Stories
 ###Front Page
 - Display recent movie reviews using the movie's posters as links
