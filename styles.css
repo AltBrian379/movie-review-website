@@ -1,0 +1,114 @@
+:root {
+    --text: #000000;
+    --background: #ffffff;
+    --primary: #fff447;
+    --primary-light: #fffa4a;
+    --secondary: #dedede;
+    --accent: #787878;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+/*Fonts
+font-family: 'Bebas Neue', sans-serif;
+font-family: 'Roboto', sans-serif;*/
+/* CSS RESET
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+
+
+  header {
+    background-color: var(--primary);
+    width: 100%;
+    height: 10vh;
+    font-family: 'Bebas Neue', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 2vw;
+  }
+
+  header #title-container{
+    margin: 0;
+    overflow: hidden;
+  }
+
+  header div a{
+    text-decoration: none;
+    color:#000000;
+    display: block;
+    font-size: 1.2rem;
+  }
+
+  header form {
+    height: 75%;
+    
+  }
+
+  header form input {
+    height: 100%;
+    background-color: var(--primary-light);
+    border: 0px;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
+
+  h3::before{
+    content: "| ";
+    color: var(--primary);
+    padding-left: 2.5vw;
+    font-size: 1.5em;
+
+  }
+
+  article {
+    text-align: justify;
+    background-color: var(--secondary);
+    padding:  2vh 5vw;
+    font-size: 1rem;
+  }
+
+  article h3 {
+    
+    font-size: 2.5em;
+  }
+
+  article h4 {
+    padding: 1vh 0vw;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2em;
+    text-align: left;
+  }
+
+  article p {
+    padding-bottom: 15px;
+    font-size: 1.2em;
+  }

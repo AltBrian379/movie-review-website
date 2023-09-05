@@ -4,35 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Home - WYWIA</title>
 </head>
 <body>
     <header>
-        <a href="./home.html"><h1 id="">WYWIA.COM</h1></a>
-        <form>
-            <input type="search" placeholder="Search...">
-            <input type="submit" style="font-family: FontAwesome" value="&#xf002;" ></input>
+        <div id="title-container">
+            <a href="./home.html"><h1 id="">WYWIA.COM</h1></a>
+        </div>
+        <form role='search' id='form'>
+            <input id='search-box' type="search" placeholder="Search..."><input type="submit" style="font-family: FontAwesome" value="&#xf002;" >
         </form>
 
     </header>
     <section id="featured">
-        <h2>Featured I Would Watch It Again</h2>
+        <h3>Featured <strong>I Would Watch It Again</strong></h3>
+        <div id="featured-review">
+            <a href=""><img alt="Featured Movie" src="./images/img_catchakiller.jpg"/></a>
+        </div>
 
     </section>
 
     <section class="horizontal-list" id="new-reviews">
-        <h2>Newest Movie Reviews</h2>
+        <h3>Newest Movie Reviews</h3>
         <div class='poster-list' id="new-reviews-list">
             <div class="movie-item-small">
-                <a href="#"><img alt="movie-title" src="./images/OIP.jpg"/></a>
-                
+                <a href="#"><img alt="movie-title" src="./images/img_clerks3_1.jpg"/></a>
+            </div>
+            <div class="movie-item-small">
+                <a href="#"><img alt="movie-title" src="./images/img_equalizer3.jpg"/></a>
+            </div>
+            <div class="movie-item-small">
+                <a href="#"><img alt="movie-title" src="./images/img_jewel.jpg"/></a>
             </div>
 
         </div>
     </section>
 
     <article>
-        <h3>Would You Watch It Again?</h3>
+        <h3>About</h3>
+        <hr>
+        <h4>Would You Watch It Again?</h4>
         <p>Welcome to the only movie review website where we ask <strong>Would You Watch It Again</strong>?</p>
         <p>We believe that the mainstream form of movie reviews don't capture what movie-goers want to know about a film! Instead, we determine a movie's quality on the grounds of a simple question.</p>
         <p>Some movies make you feel like <strong>Once is Enough</strong>, some you'll only watch <strong>If Its The Only Thing On</strong>, while with others you'll be wanting to say "<strong>I Want My Money Back</strong>". </p>
