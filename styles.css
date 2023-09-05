@@ -40,6 +40,10 @@ font-family: 'Roboto', sans-serif;*/
     isolation: isolate;
   }
 
+  html{
+    text-align: center;
+  }
+
 
 
 
@@ -79,6 +83,7 @@ font-family: 'Roboto', sans-serif;*/
 
   h3 {
     font-size: 1.4rem;
+    text-align: left;
   }
 
   h3::before{
@@ -89,10 +94,20 @@ font-family: 'Roboto', sans-serif;*/
 
   }
 
+
+  #featured-review {
+    height: 50vh;
+  }
+
+  #featured-review img {
+    object-fit: contain;
+  }
+
+
   article {
-    text-align: justify;
+    text-align: center;
     background-color: var(--secondary);
-    padding:  2vh 5vw;
+    padding:  1vh 5vw;
     font-size: 1rem;
   }
 
@@ -111,4 +126,16 @@ font-family: 'Roboto', sans-serif;*/
   article p {
     padding-bottom: 15px;
     font-size: 1.2em;
+    text-align: justify;
+  }
+
+  button {
+    border: none;
+    background-color: var(--primary);
+    font-size: 1.3rem;
+    font-family: 'Bebas Neue', sans-serif;
+
+    width: 50%;
+    height: 5vh;
+    margin: 2vh 0vw;
   }
