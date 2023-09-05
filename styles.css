@@ -6,6 +6,7 @@
     --secondary: #dedede;
     --accent: #787878;
     font-family: 'Roboto', sans-serif;
+    background-color: #eeeeee;
     
 }
 
@@ -40,9 +41,6 @@ font-family: 'Roboto', sans-serif;*/
     isolation: isolate;
   }
 
-  html{
-    text-align: center;
-  }
 
 
 
@@ -81,8 +79,14 @@ font-family: 'Roboto', sans-serif;*/
     border: 0px;
   }
 
+  #content {
+    max-width: 750px;
+    text-align: center;
+    margin: auto
+  }
+
   h3 {
-    font-size: 1.4rem;
+    font-size: 2rem;
     text-align: left;
   }
 
@@ -97,10 +101,34 @@ font-family: 'Roboto', sans-serif;*/
 
   #featured-review {
     height: 50vh;
+    width:auto;
+    
   }
 
   #featured-review img {
+    height: 100%;
+    margin: auto;
+  }
+
+  .poster-list{
+    height: 25vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .poster-list .movie-item-small {
+    flex-basis: 20%;
+    flex-shrink: 0;
+  }
+
+  .poster-list img{
+    height: 100%;
     object-fit: contain;
+
+    
+
   }
 
 
