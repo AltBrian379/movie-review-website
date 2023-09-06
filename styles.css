@@ -86,8 +86,12 @@ font-family: 'Roboto', sans-serif;*/
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: left;
+  }
+
+  h4 {
+    font-size: 1rem;
   }
 
   h3::before{
@@ -102,6 +106,7 @@ font-family: 'Roboto', sans-serif;*/
   #featured-review {
     height: 50vh;
     width:auto;
+    margin: 2.5vh 0vw;
     
   }
 
@@ -110,26 +115,23 @@ font-family: 'Roboto', sans-serif;*/
     margin: auto;
   }
 
-  .poster-list{
-    height: 25vh;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    overflow-x: auto;
+  .scroll-menu{
+    height: 350px;
+    overflow: auto;
+    white-space:nowrap;
+    margin: 20px 0;
   }
 
-  .poster-list .movie-item-small {
-    flex-basis: 20%;
-    flex-shrink: 0;
+  .scroll-menu .movie-item-small {
+    display: inline-block; 
+    margin: 0px 20px;
+    width: 200px;
+  }
+  
+  .scroll-menu img {
+
   }
 
-  .poster-list img{
-    height: 100%;
-    object-fit: contain;
-
-    
-
-  }
 
 
   article {
@@ -141,7 +143,7 @@ font-family: 'Roboto', sans-serif;*/
 
   article h3 {
     
-    font-size: 2.5em;
+    font-size: 2rem;
   }
 
   article h4 {
@@ -163,7 +165,7 @@ font-family: 'Roboto', sans-serif;*/
     font-size: 1.3rem;
     font-family: 'Bebas Neue', sans-serif;
 
-    width: 50%;
+    width: 75%;
     height: 5vh;
     margin: 2vh 0vw;
   }
