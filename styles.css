@@ -54,6 +54,8 @@ font-family: 'Roboto', sans-serif;*/
     justify-content: space-between;
     align-items: center;
     padding: 0px 2vw;
+    z-index: 0;
+    
   }
 
   header #title-container{
@@ -82,7 +84,9 @@ font-family: 'Roboto', sans-serif;*/
   #content {
     max-width: 750px;
     text-align: center;
-    margin: auto
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.21);;
   }
 
   h3 {
@@ -116,7 +120,7 @@ font-family: 'Roboto', sans-serif;*/
   }
 
   .scroll-menu{
-    height: 350px;
+    
     overflow: auto;
     white-space:nowrap;
     margin: 20px 0;
@@ -124,11 +128,13 @@ font-family: 'Roboto', sans-serif;*/
 
   .scroll-menu .movie-item-small {
     display: inline-block; 
-    margin: 0px 20px;
-    width: 200px;
+    margin: 10px 20px;
   }
   
   .scroll-menu img {
+    height: 250px;
+    width: auto;
+    object-fit: cover;
 
   }
 
@@ -168,4 +174,27 @@ font-family: 'Roboto', sans-serif;*/
     width: 75%;
     height: 5vh;
     margin: 2vh 0vw;
+  }
+
+  button:hover{
+    background-color: var(--background);
+    cursor: pointer;
+  }
+
+  /* Reviews page*/
+
+  #movie-review-info {
+    display: flex;
+    padding: 20px;
+
+  }
+
+  #movie-review-info #movie-text-wrapper{
+    text-align: left;
+  }
+
+  #movie-review-info img {
+    width: 300px;
+    height: 300px;
+    object-fit:contain;
   }
