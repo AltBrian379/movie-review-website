@@ -5,8 +5,9 @@
     --primary-light: #fffa4a;
     --secondary: #dedede;
     --accent: #787878;
+    --accent-dark: #343434;
     font-family: 'Roboto', sans-serif;
-    background-color: #eeeeee;
+    background-color: var(--secondary);
     
 }
 
@@ -82,20 +83,27 @@ font-family: 'Roboto', sans-serif;*/
   }
 
   #content {
-    max-width: 750px;
+    max-width: 800px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 2px 1px 18px 3px rgba(0,0,0,0.21);;
+    background-color: #dedede;
+  }
+
+  h2 {
+    font-weight: normal;
   }
 
   h3 {
     font-size: 1.5rem;
     text-align: left;
+    font-weight: normal;
   }
 
   h4 {
     font-size: 1rem;
+    font-weight: normal;
   }
 
   h3::before{
@@ -143,26 +151,25 @@ font-family: 'Roboto', sans-serif;*/
   article {
     text-align: center;
     background-color: var(--secondary);
-    padding:  1vh 5vw;
     font-size: 1rem;
   }
 
   article h3 {
-    
     font-size: 2rem;
+    margin: 10px
   }
 
   article h4 {
-    padding: 1vh 0vw;
+    padding: 1vh 4vw;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2em;
     text-align: left;
   }
 
   article p {
-    padding-bottom: 15px;
     font-size: 1.2em;
-    text-align: justify;
+    text-align:left;
+    margin: 2vh 5vw;
   }
 
   button {
@@ -184,17 +191,78 @@ font-family: 'Roboto', sans-serif;*/
   /* Reviews page*/
 
   #movie-review-info {
-    display: flex;
     padding: 20px;
+    background-color: var(--accent-dark);
+    color: #ffFfff;
 
   }
 
   #movie-review-info #movie-text-wrapper{
     text-align: left;
+    padding: 2vh 2vw;
   }
 
   #movie-review-info img {
-    width: 300px;
+    width: 200px;
     height: 300px;
+    text-align: center;
     object-fit:contain;
+    display: unset;
+    box-shadow: 10px 10px 10px -4px rgba(0,0,0,0.75);
+  }
+
+  .final-verdict {
+    margin: 1vh 3vw;
+  }
+  .final-verdict h4 {
+    font-family: 'Bebas Neue', sans-serif;
+   
+    text-align: center;
+    font-size: 3em;
+    padding: 2vh 3vw;
+    line-height: 80%;
+  }
+
+  .verdict-0 {
+    background-color: #55ff55;
+
+  }
+
+  .verdict-1 {
+    background-color: var(--primary);
+  }
+
+  .verdict-2 {
+    background-color: #aaaaaa;
+  }
+
+  .verdict-3 {
+    background-color: #f9a83e;
+  }
+
+  .verdict-4 {
+    background-color: #ff3333;
+  }
+
+  #review-credit {
+    font-style: italic;
+    
+  }
+
+  .review-critical {
+    margin: 0;
+    padding: 10px 0px;
+    font-weight:300;
+  }
+
+
+
+
+
+
+  footer{
+    background-color: var(--accent-dark);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 25px 0px;
   }
