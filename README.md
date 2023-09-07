@@ -39,5 +39,3 @@ A full stack web application to implement a movie review website. This project e
 ![Screenshot of conceptual image done in Paint3d](./concept-images/would%20watch%20it%20again%20draft%20websit.png)
 ### Here it is at the current moment
 ![Screenshot of the front page of the conceptual image in HTML and CSS](./video-demos/Recording%202023-09-06%20151129.gif)
-
-//Insert reviewpage here
