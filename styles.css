@@ -56,6 +56,7 @@ font-family: 'Roboto', sans-serif;*/
     align-items: center;
     padding: 0px 2vw;
     z-index: 0;
+    box-shadow: 1px -82px 49px -71px rgba(0,0,0,0.29) inset;
     
   }
 
