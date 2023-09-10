@@ -11,14 +11,30 @@ const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_
 
 
 
-const featured = document.getElementById('featured');
+const featured = document.getElementById('featured-review-link');
 
 returnFeaturedMovie(APILINK);
 
 function returnFeaturedMovie(url){
     fetch(url).then(res => res.json())
     .then(function(data){
-        console.log(data);
+        
+        const db_poster = IMG_PATH + data.poster_path;
+        const db_name = data.title;
+        const db_release = data.release_date.slice(0,4)
+
+        const image = document.createElement('img');
+        image.setAttribute('alt','Featured Movie');
+
+        const title = document.createElement('h4');
+
+        //detail
+        image.src = db_poster;
+        title.innerHTML = db_name + " (" + db_release + ")";
+
+        featured.appendChild(image);
+        featured.appendChild(title);
+
 
     })
 }
