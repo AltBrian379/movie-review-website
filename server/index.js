@@ -1,6 +1,6 @@
 import app from "./server.js"
 import mongodb from "mongodb"
-import ReviewsDAO from "./dao/reviewsDAO.js"
+import ReviewsDAO from "./dao/reviewDAO.js"
 import "dotenv/config.js"
 
 const MongoClient = mongodb.MongoClient

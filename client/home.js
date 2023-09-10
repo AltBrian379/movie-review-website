@@ -1,5 +1,4 @@
 
-
 const MOVIEDB_API_KEY = "5d3e3e5aa0a63f6e85a45adaf181e95a";
 console.log(MOVIEDB_API_KEY);
 const temp_movie_id = '605886';
