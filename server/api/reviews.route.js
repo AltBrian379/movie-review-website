@@ -1,8 +1,9 @@
 import express from "express"
-import ReviewsCtrl from "./review.controller.js"
+import ReviewsCtrl from "./reviews.controller.js"
 
 const router = express.Router()
 
-router.route("/movie/:id").get(ReviewsCtrl.apiGetReviews)
+router.route("/:id")
+        .get(ReviewsCtrl.apiGetReviews);
 
-export default router
+export default router  

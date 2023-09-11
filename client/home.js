@@ -8,6 +8,8 @@ const APILINK = `https://api.themoviedb.org/3/movie/${temp_movie_id}?api_key=${M
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_API_KEY}&query=`;
 
+/*API LINLK for Our API */
+
 
 
 

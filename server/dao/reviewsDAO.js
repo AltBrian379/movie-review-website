@@ -15,4 +15,13 @@ export default class ReviewsDAO {
       console.error(`Unable to establish collection handles in userDAO: ${e}`)
     }
   }
+
+  static async getFeaturedMovie() {
+    try {
+      return await reviews.findOne({ verdict : "1"})
+    } catch (e) {
+      console.error(`Unable to get review: ${e}`)
+      return { error: e }
+    }
+  }
 }
