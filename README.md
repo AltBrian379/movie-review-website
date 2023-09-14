@@ -39,3 +39,8 @@ A full stack web application to implement a movie review website. This project e
 <img style="object-fit: cover; height: 1000px;" src="./concept-images/would%20watch%20it%20again%20draft%20websit.png"/>
 <h3> HTML <h3>
 <img style="object-fit: contain; height: 500px" src="./video-demos/Recording%202023-09-06%20151129.gif"/>
+
+<h3> Concept </h3>
+<img style="object-fit: cover; height: 1000px;" src="./concept-images/would watch it again draft website review.png"/>
+<h3> HTML <h3>
+<img style="object-fit: contain; height: 500px" src="./video-demos/review-page.gif"/>
