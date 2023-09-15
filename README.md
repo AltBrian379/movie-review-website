@@ -3,7 +3,7 @@
 
 ## Summary
 
-A full stack web application to implement a movie review website. This project emulates a software development cycle from conceptualization to implementation. This application is being built using pure HTML and CSS for better understanding of the tools. 
+A full stack web application to implement a movie review website. It is made with minimal frameworks. This project emulates a software development cycle from conceptualization to implementation. This application is being built using pure HTML and CSS for better understanding of the tools. 
 ### This Project is currently under development. 
 
 ## Programming Languages and Programs Used
