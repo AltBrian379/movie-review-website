@@ -15,7 +15,7 @@ const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_
 
 
 const featured = document.getElementById('featured-review-link');
-
+/* 
 returnFeaturedMovie(APILINK);
 returnNewMovieList()
 
@@ -40,5 +40,5 @@ function returnFeaturedMovie(url){
         featured.appendChild(title);
 
 
-    })
-}
+    }) 
+} */

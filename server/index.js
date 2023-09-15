@@ -1,7 +1,13 @@
-import app from "./server.js"
-import mongodb from "mongodb"
-import ReviewsDAO from "./dao/reviewsDAO.js"
-import "dotenv/config.js"
+
+
+
+
+
+/*const app = require("./server.js")
+const mongodb = require("mongodb")
+const ReviewsDAO = require("./dao/reviewsDAO.js")
+require("dotenv").config()
+
 
 const MongoClient = mongodb.MongoClient
 const mongo_username = process.env['MONGO_USERNAME']
@@ -27,3 +33,4 @@ MongoClient.connect(
       console.log(`listening on port ${port}`)
     })
   })
+  */
