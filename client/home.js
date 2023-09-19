@@ -4,7 +4,7 @@ console.log(MOVIEDB_API_KEY);
 let movie_id;
 
 //Step 1: Make connection to our local database and retrieve info 
-const APILINK_LOCAL = 'https://localhost:8000/api/v1/reviews';
+const APILINK_LOCAL = 'https://localhost:8000/api/v1/reviews/';
 
 
 
@@ -21,13 +21,13 @@ const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_
 
 const featured = document.getElementById('featured-review-link');
 
-returnFeaturedMovieData(APILINK_LOCAL + "/featured");
+returnFeaturedMovieData(APILINK_LOCAL + "featured/");
 
-
-returnFeaturedMovieData_TMDB(APILINK);
+/* Not Yet */
+/*returnFeaturedMovieData_TMDB(APILINK);*/
 
 function returnFeaturedMovieData(url){
-    fetch.url.then(res => res.json())
+    fetch(url).then(res => res.json())
     .then(function(data){
         console.log(data);
 
