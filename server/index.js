@@ -1,12 +1,7 @@
-
-
-
-
-
-/*const app = require("./server.js")
-const mongodb = require("mongodb")
-const ReviewsDAO = require("./dao/reviewsDAO.js")
-require("dotenv").config()
+import app from "./server.js"
+import mongodb from "mongodb"
+import ReviewsDAO from "./dao/reviewsDAO.js"
+import dotenv from "dotenv/config.js"
 
 
 const MongoClient = mongodb.MongoClient
@@ -33,4 +28,4 @@ MongoClient.connect(
       console.log(`listening on port ${port}`)
     })
   })
-  */
+  

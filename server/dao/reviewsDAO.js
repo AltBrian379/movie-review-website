@@ -1,12 +1,11 @@
-/*
-const mongodb = require("mongodb")
+import mongodb from "mongodb"
 const ObjectId = mongodb.ObjectID
 
 let reviews
 
-export default class ReviewsDAO { */
+export default class ReviewsDAO { 
     /* This is where we make connection to our database. */
-  /*
+  
   static async injectDB(conn) {
     if (reviews) {
       return
@@ -27,4 +26,3 @@ export default class ReviewsDAO { */
     }
   }
 }
-*/

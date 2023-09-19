@@ -1,6 +1,6 @@
-/*
-const ReviewsDAO = "../dao/reviewsDAO.js"
-module.exports = class ReviewsController {
+import ReviewsDAO from "../dao/reviewsDAO.js"
+
+export default class ReviewsController {
     static async apiGetFeaturedMovie(req, res, next) {
         try {
             let featured = await ReviewsDAO.getFeaturedMovie();
@@ -18,4 +18,3 @@ module.exports = class ReviewsController {
 
     
 }
-*/
