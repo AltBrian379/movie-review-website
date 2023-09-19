@@ -1,25 +1,40 @@
 
 const MOVIEDB_API_KEY = "5d3e3e5aa0a63f6e85a45adaf181e95a";
 console.log(MOVIEDB_API_KEY);
-const temp_movie_id = '605886';
+let movie_id;
+
+//Step 1: Make connection to our local database and retrieve info 
+const APILINK_LOCAL = 'https://localhost:8000/api/v1/reviews';
 
 
-const APILINK = `https://api.themoviedb.org/3/movie/${temp_movie_id}?api_key=${MOVIEDB_API_KEY}`;
+
+
+
+
+
+
+const APILINK = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`;
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_API_KEY}&query=`;
 
 /*API LINLK for Our API */
 
-
-
-
-
 const featured = document.getElementById('featured-review-link');
-/* 
-returnFeaturedMovie(APILINK);
-returnNewMovieList()
 
-function returnFeaturedMovie(url){
+returnFeaturedMovieData(APILINK_LOCAL + "/featured");
+
+
+returnFeaturedMovieData_TMDB(APILINK);
+
+function returnFeaturedMovieData(url){
+    fetch.url.then(res => res.json())
+    .then(function(data){
+        console.log(data);
+
+    })
+}
+
+function returnFeaturedMovieData_TMDB(url){
     fetch(url).then(res => res.json())
     .then(function(data){
         
@@ -41,4 +56,4 @@ function returnFeaturedMovie(url){
 
 
     }) 
-} */
+}
