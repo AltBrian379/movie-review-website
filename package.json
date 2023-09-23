@@ -2,7 +2,7 @@
   "name": "movie-review-website",
   "version": "1.0.0",
   "description": "## Summary",
-  "main": "",
+  "main": "./server/index.js",
   "type": "module",
   "scripts": {
     "devStart": "nodemon ./server/server.js"
