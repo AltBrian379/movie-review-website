@@ -4,11 +4,11 @@ export default class ReviewsController {
     static async apiGetFeaturedMovie(req, res, next) {
         try {
             let featured = await ReviewsDAO.getFeaturedMovie();
-            if (!reviews) {
+            if (!featured) {
                 res.status(404).json({ error: "Not found" })
                 return
               }
-              res.json(reviews)
+              res.json(featured)
            
         } catch (e) {
             console.log(`api, ${e}`)
