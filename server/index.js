@@ -10,7 +10,7 @@ const mongo_password = process.env['MONGO_PASSWORD']
 console.log(mongo_password, mongo_username);
 const uri = `mongodb+srv://${mongo_username}:${mongo_password}@cluster0.zlmybst.mongodb.net/?retryWrites=true&w=majority`
 
-const port = 8090
+const port = 8000
 
 MongoClient.connect(
   uri,
