@@ -8,6 +8,9 @@ A full stack web application to implement a movie review website. It is made wit
 
 ## Programming Languages and Programs Used
 
+### Milestones
+Successfully routed requests from js file to middle-ware.
+
 ### Front-End
 - HTML
 - CSS 
