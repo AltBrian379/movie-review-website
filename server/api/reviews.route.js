@@ -11,4 +11,7 @@ const router = express.Router()
 router.route("/featured")
     .get(ReviewsCtrl.apiGetFeaturedMovie)
 
+router.route("/newest")
+    .get(ReviewsCtrl.apiGetNewestMovieReviews)
+
 export default router
