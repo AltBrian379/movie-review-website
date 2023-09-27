@@ -9,7 +9,11 @@ A full stack web application to implement a movie review website. It is made wit
 ## Programming Languages and Programs Used
 
 ### Milestones
-Successfully routed requests from js file to middle-ware.
+<ul>
+<li>Sequential execution of GET requests from two different databases</li>
+<li>Data from databases formatted and loaded into HTML</li>
+<li>Successfully routed requests from js file to middle-ware.</li>
+</ul>
 
 ### Front-End
 - HTML
