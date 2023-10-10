@@ -1,6 +1,6 @@
 # WouldYouWatchItAgain.com
 ### An Alternative Movie Review Website.
-<h4>Click here for the <a href="https://github.com/AltBrian379/movie-review-website/blob/master/README.md#wouldyouwatchitagaincom">GH-Page</a></h4>
+<p>Click here for the <a href="./index.html">GH-Page</a></p>
 ## Summary
 
 A full stack web application to implement a movie review website. It is made with minimal frameworks. This project emulates a software development cycle from conceptualization to implementation. This application is being built using pure HTML and CSS for better understanding of the tools. 
