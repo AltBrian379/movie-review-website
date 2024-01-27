@@ -35,7 +35,7 @@ async function returnFeaturedMovieData(url, callback){
     await fetch(url).then(res => res.json())
     .then(function(data){
         console.log("This should happen first");
-        console.log("This is getting a list of movie reviews" + JSON.stringify(data));
+        console.log("This is getting a list of movie reviews" + JSON.stringify(data) + typeof data);
         console.log(data.movie_id)
         movie_id = data.movie_id;
     })
@@ -47,7 +47,7 @@ async function returnNewestMovieReviews(url, callback) {
     console.log(url + " returnNewestMovieReviews");
     await fetch(url).then(res => res.json())
     .then(function(data){
-        console.log("This is getting a list of movie reviews: " + JSON.stringify(data) );
+        console.log("This is getting a list of movie reviews: " + JSON.stringify(data) + typeof data);
         
     })
     callback();

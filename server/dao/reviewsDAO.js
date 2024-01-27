@@ -28,7 +28,13 @@ export default class ReviewsDAO {
   
   static async getNewestMoviesList() {
     try {
-      return await reviews.find({}, {movie_id: 1}).toArray()
+      const myArray = [];
+      const cursor = reviews.find({},{_id: 0, author: 0, movie_id: 1, review: 0, verdict: 0});
+      await cursor.forEach((doc) => {
+
+        myArray.push( {movie_id: doc.movie_id} )
+      })
+      return myArray;
       
     } catch (e) {
       console.error(`Unable to get reviews: ${e}`)
