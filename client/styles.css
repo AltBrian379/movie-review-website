@@ -140,7 +140,13 @@ font-family: 'Roboto', sans-serif;*/
   .scroll-menu .movie-item-small {
     display: inline-block; 
     margin: 10px 20px;
+    max-width: 165px;
+
     
+  }
+
+  .poster-title {
+    overflow: hidden;
   }
   
   .scroll-menu img {

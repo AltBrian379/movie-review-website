@@ -19,9 +19,44 @@ returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function (movie_id)
     returnFeaturedMovieData_TMDB(APILINK);
 })
 
-returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", /*TODO, callback*/);
+returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", (movie_id_list) => {
+    const html_new_reviews = document.getElementById('new-reviews-list');
+    movie_id_list.forEach(async (data) => {
+        console.log("testing for each data: " + data.movie_id + "...");
+        console.log(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`)
+        //let TMDB_data = await returnMovieData_TMDB(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`);
+        
+        await fetch(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
+            console.log(TMDB_data.poster_path + " Poster path");
+            const movie_poster = IMG_PATH + TMDB_data.poster_path;
+            const movie_name = TMDB_data.title;
+            const movie_release = TMDB_data.release_date.slice(0,4);
+    
+            // Create elements 
+            const image = document.createElement('img');
+            image.setAttribute('alt',`new-movie-review-${movie_name}`)
+    
+            const title = document.createElement('h4');
+            title.setAttribute("class","poster-title");
+    
+            const wrapper = document.createElement('div');
+            wrapper.setAttribute('class','movie-item-small');
+    
+            const anchor = document.createElement('a');
+            anchor.setAttribute('href','./review.html') //temporary
+    
+            // Detailing...
+            image.src = movie_poster;
+            title.innerHTML = movie_name +  " (" + movie_release + ")";
+            
+            wrapper.appendChild(image);
+            wrapper.appendChild(title);
+    
+            html_new_reviews.appendChild(wrapper);
 
-
+        })    
+    })
+});
 
 //returnFeaturedMovieData_TMDB(APILINK);
 
@@ -46,21 +81,17 @@ async function returnFeaturedMovieData(url, callback){
 // Return list of newest movies
 async function returnNewestMovieReviews(url, callback) {
     let movie_id;
+    let movie_id_list;
     console.log(url + " returnNewestMovieReviews");
     await fetch(url).then(res => res.json())
     .then(function(data){
         console.log("This is getting a list of movie reviews: " + JSON.stringify(data) + typeof data);
-        
-        //Assume loop
-
-
-        
+        movie_id_list = data;
     })
-    
-    
+    callback(movie_id_list);
 }
 
-async function returnFeaturedMovieData_TMDB(url){
+async function returnFeaturedMovieData_TMDB(url){ 
     await fetch(url).then(res => res.json())
     .then(function(data){
         
@@ -82,7 +113,7 @@ async function returnFeaturedMovieData_TMDB(url){
     }) 
 }
 
-async function returnMovieData_TMDB(url){
+async function returnMovieData_TMDB(url){ //Useless function, might delete.
     await fetch(url).then(res => res.json())
     .then(function(data){
         return data;
