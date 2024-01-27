@@ -12,17 +12,16 @@ const featured = document.getElementById('featured-review-link');
 /*Call Back Test. By using this we ensure sequential execution of the functions. */
 
 // NOTE:SEQ_EXEC: This should happen next
+
 returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function (movie_id) {
     console.log("This happens next.")
     const APILINK = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`;
     returnFeaturedMovieData_TMDB(APILINK);
 })
 
-returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
-    console.log("This happens after the list. Does nothing for now...")
-    
+returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", /*TODO, callback*/);
 
-})
+
 
 //returnFeaturedMovieData_TMDB(APILINK);
 
@@ -46,17 +45,18 @@ async function returnFeaturedMovieData(url, callback){
 
 // Return list of newest movies
 async function returnNewestMovieReviews(url, callback) {
+    let movie_id;
     console.log(url + " returnNewestMovieReviews");
     await fetch(url).then(res => res.json())
     .then(function(data){
         console.log("This is getting a list of movie reviews: " + JSON.stringify(data) + typeof data);
         
         //Assume loop
-        const tmdb_data = returnMovieData_TMDB(url);
+
 
         
     })
-    callback();
+    
     
 }
 
@@ -88,3 +88,5 @@ async function returnMovieData_TMDB(url){
         return data;
     })
 }
+
+
