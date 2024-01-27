@@ -16,7 +16,7 @@ export default class ReviewsController {
         }
     }
 
-    static async apiGetNewestMovieReviews(req,res, next) {
+    static async apiGetNewestMovieReviews(req, res, next) {
         try {
             let newestMovieList = await ReviewsDAO.getNewestMoviesList();
             if (!newestMovieList) {

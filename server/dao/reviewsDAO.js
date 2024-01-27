@@ -28,11 +28,10 @@ export default class ReviewsDAO {
   
   static async getNewestMoviesList() {
     try {
-      return await reviews.find().sort({_id:-1}).limit(5), () => {
-        console.log(reviews);
-      };
+      return await reviews.find({}, {movie_id: 1}).toArray()
+      
     } catch (e) {
-      console.error(`Unable to get reviews`)
+      console.error(`Unable to get reviews: ${e}`)
       return { error: e}
     }
   }

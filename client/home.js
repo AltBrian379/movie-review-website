@@ -18,10 +18,12 @@ returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function () {
     returnFeaturedMovieData_TMDB(APILINK);
 })
 
-//returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
-//    console.log("This happens after the list. Does nothing for now...")
+returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
+    console.log("This happens after the list. Does nothing for now...")
+    
 
-//})
+})
+
 //returnFeaturedMovieData_TMDB(APILINK);
 
 // Function Bodies
@@ -29,9 +31,12 @@ returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function () {
 
 // NOTE: SEQ_EXEC: This should happen first
 async function returnFeaturedMovieData(url, callback){
+    console.log(url + " returnFeaturedMovieData");
     await fetch(url).then(res => res.json())
     .then(function(data){
         console.log("This should happen first");
+        console.log("This is getting a list of movie reviews" + JSON.stringify(data));
+        console.log(data.movie_id)
         movie_id = data.movie_id;
     })
     callback();
@@ -39,16 +44,18 @@ async function returnFeaturedMovieData(url, callback){
 
 // Return list of newest movies
 async function returnNewestMovieReviews(url, callback) {
+    console.log(url + " returnNewestMovieReviews");
     await fetch(url).then(res => res.json())
     .then(function(data){
-        console.log("This is getting a list of movie reviews" + data);
+        console.log("This is getting a list of movie reviews: " + JSON.stringify(data) );
+        
     })
     callback();
     
 }
 
-function returnFeaturedMovieData_TMDB(url){
-    fetch(url).then(res => res.json())
+async function returnFeaturedMovieData_TMDB(url){
+    await fetch(url).then(res => res.json())
     .then(function(data){
         
         const db_poster = IMG_PATH + data.poster_path;
