@@ -4,7 +4,7 @@ const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_API_KEY}&query=`;
 //Step 1: Make connection to our local database and retrieve info 
 const APILINK_MOVIE_REVIEWS = 'http://localhost:8000/api/v1/reviews';
-let movie_id;
+
 const featured = document.getElementById('featured-review-link');
 
 
@@ -12,7 +12,7 @@ const featured = document.getElementById('featured-review-link');
 /*Call Back Test. By using this we ensure sequential execution of the functions. */
 
 // NOTE:SEQ_EXEC: This should happen next
-returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function () {
+returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function (movie_id) {
     console.log("This happens next.")
     const APILINK = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`;
     returnFeaturedMovieData_TMDB(APILINK);
@@ -31,15 +31,17 @@ returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
 
 // NOTE: SEQ_EXEC: This should happen first
 async function returnFeaturedMovieData(url, callback){
+    let movie_id;
     console.log(url + " returnFeaturedMovieData");
     await fetch(url).then(res => res.json())
     .then(function(data){
+        
         console.log("This should happen first");
-        console.log("This is getting a list of movie reviews" + JSON.stringify(data) + typeof data);
+        console.log("This is getting a featured movie review" + JSON.stringify(data) + typeof data);
         console.log(data.movie_id)
         movie_id = data.movie_id;
     })
-    callback();
+    callback(movie_id);
 }
 
 // Return list of newest movies
@@ -48,6 +50,10 @@ async function returnNewestMovieReviews(url, callback) {
     await fetch(url).then(res => res.json())
     .then(function(data){
         console.log("This is getting a list of movie reviews: " + JSON.stringify(data) + typeof data);
+        
+        //Assume loop
+        const tmdb_data = returnMovieData_TMDB(url);
+
         
     })
     callback();
@@ -74,4 +80,11 @@ async function returnFeaturedMovieData_TMDB(url){
         featured.appendChild(image);
         featured.appendChild(title);
     }) 
+}
+
+async function returnMovieData_TMDB(url){
+    await fetch(url).then(res => res.json())
+    .then(function(data){
+        return data;
+    })
 }
