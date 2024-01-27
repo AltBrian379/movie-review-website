@@ -28,7 +28,6 @@ export default class ReviewsDAO {
   
   static async getNewestMoviesList() {
     try {
-
       return await reviews.find().sort({_id:-1}).limit(5), () => {
         console.log(reviews);
       };

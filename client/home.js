@@ -11,6 +11,7 @@ const featured = document.getElementById('featured-review-link');
 /*API LINLK for Our API */
 /*Call Back Test. By using this we ensure sequential execution of the functions. */
 
+// NOTE:SEQ_EXEC: This should happen next
 returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function () {
     console.log("This happens next.")
     const APILINK = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`;
@@ -25,6 +26,8 @@ returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
 
 // Function Bodies
 // TODO REASEARCH ASYNC AWAIT
+
+// NOTE: SEQ_EXEC: This should happen first
 async function returnFeaturedMovieData(url, callback){
     await fetch(url).then(res => res.json())
     .then(function(data){
