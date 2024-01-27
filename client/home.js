@@ -18,10 +18,10 @@ returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function () {
     returnFeaturedMovieData_TMDB(APILINK);
 })
 
-returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
-    console.log("This happens after the list. Does nothing for now...")
+//returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", function () {
+//    console.log("This happens after the list. Does nothing for now...")
 
-})
+//})
 //returnFeaturedMovieData_TMDB(APILINK);
 
 // Function Bodies
