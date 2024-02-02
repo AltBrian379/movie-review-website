@@ -113,11 +113,4 @@ async function returnFeaturedMovieData_TMDB(url){
     }) 
 }
 
-async function returnMovieData_TMDB(url){ //Useless function, might delete.
-    await fetch(url).then(res => res.json())
-    .then(function(data){
-        return data;
-    })
-}
-
 
