@@ -13,6 +13,8 @@ const featured = document.getElementById('featured-review-link');
 
 // NOTE:SEQ_EXEC: This should happen next
 
+testforReview(APILINK_MOVIE_REVIEWS + "/2292");
+
 returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function (movie_id) {
     console.log("This happens next.")
     const APILINK = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`;
@@ -114,3 +116,10 @@ async function returnFeaturedMovieData_TMDB(url){
 }
 
 
+async function testforReview(url){
+    console.log(url + " Testing");
+    await fetch(url).then(res => res.json())
+    .then(function(data){
+        console.log(data.author);
+    })
+}

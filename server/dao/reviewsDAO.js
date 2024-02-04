@@ -41,5 +41,15 @@ export default class ReviewsDAO {
       return { error: e}
     }
   }
+
+  static async getReview(movieId) {
+    try{
+      return await reviews.findOne({movie_id: `${movieId}`});
+
+    } catch(e) {
+      console.error(`Unable to get review: ${e}`)
+      return { error: e}
+    }
+  }
 }
 
