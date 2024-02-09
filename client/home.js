@@ -13,8 +13,6 @@ const featured = document.getElementById('featured-review-link');
 
 // NOTE:SEQ_EXEC: This should happen next
 
-testforReview(APILINK_MOVIE_REVIEWS + "/2292");
-
 returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", async function (movie_id) {
     console.log("This happens next.")
     await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(data) {
@@ -110,35 +108,4 @@ async function returnNewestMovieReviews(url, callback) {
         movie_id_list = data;
     })
     callback(movie_id_list);
-}
-
-async function returnFeaturedMovieData_TMDB(url){ 
-    await fetch(url).then(res => res.json())
-    .then(function(data){
-        
-        const db_poster = IMG_PATH + data.poster_path;
-        const db_name = data.title;
-        const db_release = data.release_date.slice(0,4)
-
-        const image = document.createElement('img');
-        image.setAttribute('alt','Featured Movie');
-
-        const title = document.createElement('h4');
-
-        //detail
-        image.src = db_poster;
-        title.innerHTML = db_name + " (" + db_release + ")";
-
-        featured.appendChild(image);
-        featured.appendChild(title);
-    }) 
-}
-
-
-async function testforReview(url){
-    console.log(url + " Testing");
-    await fetch(url).then(res => res.json())
-    .then(function(data){
-        console.log("Test for review" + data.movie_id);
-    })
 }
