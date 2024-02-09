@@ -15,17 +15,36 @@ const featured = document.getElementById('featured-review-link');
 
 testforReview(APILINK_MOVIE_REVIEWS + "/2292");
 
-returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", function (movie_id) {
+returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", async function (movie_id) {
     console.log("This happens next.")
-    const APILINK = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`;
-    returnFeaturedMovieData_TMDB(APILINK);
+    await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(data) {
+        const db_poster = IMG_PATH + data.poster_path;
+        const db_name = data.title;
+        const db_release = data.release_date.slice(0,4)
+
+        const image = document.createElement('img');
+        image.setAttribute('alt','Featured Movie');
+
+        const title = document.createElement('h4');
+
+        //detail
+        image.src = db_poster;
+        title.innerHTML = db_name + " (" + db_release + ")";
+
+        featured.appendChild(image);
+        featured.appendChild(title);
+
+    })
+
+
+
+
+    //returnFeaturedMovieData_TMDB(APILINK);
 })
 
 returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", (movie_id_list) => {
     const html_new_reviews = document.getElementById('new-reviews-list');
     movie_id_list.forEach(async (data) => {
-        console.log("testing for each data: " + data.movie_id + "...");
-        console.log(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`)
         //let TMDB_data = await returnMovieData_TMDB(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`);
         
         await fetch(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
