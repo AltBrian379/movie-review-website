@@ -120,6 +120,6 @@ async function testforReview(url){
     console.log(url + " Testing");
     await fetch(url).then(res => res.json())
     .then(function(data){
-        console.log(data.movie_id);
+        console.log("Test for review" + data.movie_id);
     })
 }
