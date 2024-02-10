@@ -8,7 +8,7 @@ const APILINK_MOVIE_REVIEWS = 'http://localhost:8000/api/v1/reviews';
 
 
 
-/*API LINLK for Our API */
+/*API LINK for Our API */
 /*Call Back Test. By using this we ensure sequential execution of the functions. */
 
 // NOTE:SEQ_EXEC: This should happen next
@@ -41,14 +41,12 @@ returnFeaturedMovieData(APILINK_MOVIE_REVIEWS + "/featured", async function (mov
     anchor.appendChild(title)
     featured.appendChild(anchor)
 
-    //returnFeaturedMovieData_TMDB(APILINK);
+    
 })
 
 returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", (movie_id_list) => {
     const html_new_reviews = document.getElementById('new-reviews-list');
     movie_id_list.forEach(async (data) => {
-        //let TMDB_data = await returnMovieData_TMDB(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`);
-        
         await fetch(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
             console.log(TMDB_data.poster_path + " Poster path");
             const movie_poster = IMG_PATH + TMDB_data.poster_path;
@@ -66,7 +64,7 @@ returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", (movie_id_list) => {
             wrapper.setAttribute('class','movie-item-small');
     
             const anchor = document.createElement('a');
-            anchor.setAttribute('href',`./review.html?id=${data.movie_id}`) //temporary
+            anchor.setAttribute('href',`./review.html?id=${data.movie_id}`)
     
             // Detailing...
             image.src = movie_poster;
