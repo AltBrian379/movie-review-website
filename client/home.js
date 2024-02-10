@@ -66,14 +66,16 @@ returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", (movie_id_list) => {
             wrapper.setAttribute('class','movie-item-small');
     
             const anchor = document.createElement('a');
-            anchor.setAttribute('href','./review.html') //temporary
+            anchor.setAttribute('href',`./review.html?id=${data.movie_id}`) //temporary
     
             // Detailing...
             image.src = movie_poster;
             title.innerHTML = movie_name +  " (" + movie_release + ")";
             
-            wrapper.appendChild(image);
-            wrapper.appendChild(title);
+            anchor.appendChild(image);
+            anchor.appendChild(title);
+
+            wrapper.appendChild(anchor);
     
             html_new_reviews.appendChild(wrapper);
 
