@@ -5,9 +5,6 @@ const SEARCHAPI = `https://api.themoviedb.org/3/search/movie?&api_key=${MOVIEDB_
 //Step 1: Make connection to our local database and retrieve info 
 const APILINK_MOVIE_REVIEWS = 'http://localhost:8000/api/v1/reviews';
 
-
-
-
 /*API LINK for Our API */
 /*Call Back Test. By using this we ensure sequential execution of the functions. */
 
