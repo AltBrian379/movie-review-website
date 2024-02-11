@@ -9,66 +9,56 @@ const url = new URL(location.href);
 const movie_id = url.searchParams.get("id");
 console.log(movie_id)
 
-getMovieData(APILINK_MOVIE_REVIEWS + "/featured", async function (movie_id) {
-    console.log("This happens next.")
-        let db_poster;
-        let db_name
-        let db_release;
-
-    await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(data) {
-        
-        db_poster = IMG_PATH + data.poster_path;
-        db_name = data.title;
-        db_release = data.release_date.slice(0,4)
-    })
-    //construct
-    const image = document.createElement('img');
-    image.setAttribute('alt','Featured Movie');
-    const title = document.createElement('h4');
-    const anchor = document.createElement('a');
-    anchor.setAttribute('href',`./review.html?id=${movie_id}`);
-    anchor.setAttribute('id','featured-review-link');
-      //detail
-    image.src = db_poster;
-    title.innerHTML = db_name + " (" + db_release + ")";
-    //build
-    console.log(image+ "i" + anchor + "i" + title + "o" + featured);
-    anchor.appendChild(image)
-    anchor.appendChild(title)
-    featured.appendChild(anchor)
-
-    
-})
-
-getMovieData(APILINK_MOVIE_REVIEWS + ``, (movie_id_list) => {
+getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
     const html_new_reviews = document.getElementById('new-reviews-list');
-    movie_id_list.forEach(async (data) => {
-        await fetch(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
-            console.log(TMDB_data.poster_path + " Poster path");
-            const movie_poster = IMG_PATH + TMDB_data.poster_path;
-            const movie_name = TMDB_data.title;
-            const movie_release = TMDB_data.release_date.slice(0,4);
-    
-            // Create elements 
-            const image = document.createElement('img');
-            image.setAttribute('alt',`new-movie-review-${movie_name}`)
-    
-            const title = document.createElement('h4');
-            title.setAttribute("class","poster-title");
-    
-            const wrapper = document.createElement('div');
-            wrapper.setAttribute('class','movie-item-small');
-    
-            const anchor = document.createElement('a');
-            anchor.setAttribute('href',`./review.html?id=${data.movie_id}`)
-    
-            // Detailing...
-            image.src = movie_poster;
-            title.innerHTML = movie_name +  " (" + movie_release + ")";
+    let movie_poster;
+    let movie_name;
+    let movie_director;
+    let movie_release;
+    let obj;
+    await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
+        console.log(TMDB_data.poster_path + " Poster path");
+        movie_poster = IMG_PATH + TMDB_data.poster_path;
+        movie_name = TMDB_data.title;
+        movie_release = TMDB_data.release_date.slice(0,4);
 
-
-        })    
     })
+
+    await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
+        movie_director = TMDB_data.crew.find(o => o.job ==="Director");
+
+    })
+
+
+    const image = document.createElement('img');
+    image.setAttribute('alt',`new-movie-review-${movie_name}`)
+
+    const title = document.createElement('h2');
+    title.setAttribute("class","poster-title");
+
+    const wrapper = document.createElement('div');
+    wrapper.setAttribute('class','movie-item-small');
+
+    const director = document.createElement('h4');
+
+
+    // Detailing...
+    image.src = movie_poster;
+    title.innerHTML = movie_name +  " (" + movie_release + ")";
+
+    director.innerHTML = `Directed by ${movie_director.name}`;
+
+    //Insertion
+    const img_wrapper = document.getElementById('movie-review-info');
+    img_wrapper.prepend(image);
+
+    const movie_text_wrapper = document.getElementById('movie-text-wrapper');
+    movie_text_wrapper.append(title);
+    movie_text_wrapper.append(document.createElement('hr'));
+    movie_text_wrapper.append(director);
+
+    console.log(obj);
+    
 });
 
 async function getMovieData(url, callback){
@@ -78,7 +68,6 @@ async function getMovieData(url, callback){
     .then(function(data){
         
         console.log("This should happen first");
-        console.log("This is getting a featured movie review" + JSON.stringify(data) + typeof data);
         console.log(data.movie_id)
         movie_id = data.movie_id;
     })
