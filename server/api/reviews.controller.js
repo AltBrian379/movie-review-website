@@ -1,18 +1,47 @@
-import ReviewsDAO from "../dao/reviewsDAO"
+import ReviewsDAO from "../dao/reviewsDAO.js"
 
 export default class ReviewsController {
     static async apiGetFeaturedMovie(req, res, next) {
         try {
             let featured = await ReviewsDAO.getFeaturedMovie();
-            if (!reviews) {
+            if (!featured) {
                 res.status(404).json({ error: "Not found" })
                 return
-              }
-              res.json(reviews)
+            }
+            res.json(featured)
            
         } catch (e) {
             console.log(`api, ${e}`)
             res.status(500).json({ error: e })
+        }
+    }
+
+    static async apiGetNewestMovieReviews(req, res, next) {
+        try {
+            let newestMovieList = await ReviewsDAO.getNewestMoviesList();
+            if (!newestMovieList) {
+                res.status(404).json({ error: "Not found" })
+                return
+            }
+            res.json(newestMovieList)  
+        } catch(e) {
+            console.log(`api, ${e}`)
+            res.status(500).json({ error: e})
+        }
+    }
+
+    static async apiGetReview(req,res,next) {
+        try{
+            let id = req.params.movieId || {}
+            let review = await ReviewsDAO.getReview(id);
+            if(!review) {
+                res.status(404).json({error: "Not found"})
+                return
+            }
+            res.json(review)
+        } catch(e) {
+            console.log(`api, ${e}`)
+            res.status(500).json({error:e})
         }
     }
 

@@ -3,7 +3,17 @@ import ReviewsCtrl from "./reviews.controller.js"
 
 const router = express.Router()
 
-router.route("/:id")
-        .get(ReviewsCtrl.apiGetReviews);
+//TODO: implement function in reviews.controller.js
+//router.route("/movie/:id").get(ReviewsCtrl.apiGetReview)
 
-export default router  
+
+
+router.route("/featured")
+    .get(ReviewsCtrl.apiGetFeaturedMovie)
+
+router.route("/newest")
+    .get(ReviewsCtrl.apiGetNewestMovieReviews)
+
+router.route("/:movieId")
+    .get(ReviewsCtrl.apiGetReview)
+export default router
