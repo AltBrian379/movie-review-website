@@ -89,13 +89,42 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
 
 async function getMovieData(url, callback){
     let movie_id;
+    let review_array;
     console.log(url + " URL paramter");
     await fetch(url).then(res => res.json())
     .then(function(data){
         
         console.log("This should happen first");
         console.log(data.movie_id)
+
+        review_array = data.review;
+
         movie_id = data.movie_id;
     })
+
+    const article = document.getElementById('main-article');
+
+    // This block appends the review. 
+    review_array.forEach((element, index) => {
+        
+        const review_p = document.createElement('p');
+        if (index === (review_array.length- 1)){
+            const summary_div = document.createElement('div');
+            summary_div.setAttribute('class','review-critical verdict-1');
+            review_p.setAttribute('class','review-text')
+            review_p.innerHTML = element;
+            summary_div.appendChild(review_p);
+            article.appendChild(summary_div);
+        }
+        else{
+        review_p.setAttribute('class','review-text')
+        review_p.innerHTML = element;
+        article.appendChild(review_p);
+
+        }
+        
+    });
+
+
     callback(movie_id);
 }
