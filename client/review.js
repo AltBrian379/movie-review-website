@@ -14,21 +14,33 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
     let movie_poster;
     let movie_name;
     let movie_director;
+    let movie_writer;
     let movie_release;
+    let movie_synopsis;
+
     let obj;
     await fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
         console.log(TMDB_data.poster_path + " Poster path");
+        console.log(JSON.stringify(TMDB_data))
         movie_poster = IMG_PATH + TMDB_data.poster_path;
         movie_name = TMDB_data.title;
         movie_release = TMDB_data.release_date.slice(0,4);
+        movie_synopsis = TMDB_data.overview;
 
     })
 
     await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
+        console.log(JSON.stringify(TMDB_data.crew))
         movie_director = TMDB_data.crew.find(o => o.job ==="Director");
+
+        movie_writer = TMDB_data.crew.find(o => o.job === "Writer");
+        if (!movie_writer){
+            movie_writer = TMDB_data.crew.find(o => o.job === "Screenplay")
+        }
 
     })
 
+    
 
     const image = document.createElement('img');
     image.setAttribute('alt',`new-movie-review-${movie_name}`)
@@ -40,6 +52,11 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
     wrapper.setAttribute('class','movie-item-small');
 
     const director = document.createElement('h4');
+    
+    const writer = document.createElement('h4');
+
+    const synopsis = document.createElement('p');
+
 
 
     // Detailing...
@@ -48,7 +65,14 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
 
     director.innerHTML = `Directed by ${movie_director.name}`;
 
+    writer.innerHTML = `Written by ${movie_writer.name}`;
+
+    synopsis.innerHTML = movie_synopsis;
+
     //Insertion
+    const page_title = document.getElementById('page-title');
+    page_title.innerHTML = movie_name +  " (" + movie_release + ") - WYWIA";
+
     const img_wrapper = document.getElementById('movie-review-info');
     img_wrapper.prepend(image);
 
@@ -56,6 +80,8 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
     movie_text_wrapper.append(title);
     movie_text_wrapper.append(document.createElement('hr'));
     movie_text_wrapper.append(director);
+    movie_text_wrapper.append(writer);
+    movie_text_wrapper.append(synopsis);
 
     console.log(obj);
     
