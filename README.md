@@ -1,8 +1,8 @@
-# WouldYouWatchItAgain.com
+# WouldYouWatchItAgain Full Stack Project
 ### An Alternative Movie Review Website.
 ## Summary
 
-A full stack web application to implement a movie review website. It is made with minimal frameworks. This project emulates a software development cycle from conceptualization to implementation. This application is being built using pure HTML and CSS for better understanding of the tools. 
+A full stack project to implement a movie review website. It is made with minimal frameworks. This project emulates a software development cycle from conceptualization to implementation. This application is being built using pure HTML and CSS for better understanding of the tools. 
 ### This Project is currently under development. 
 
 ## Programming Languages and Programs Used
@@ -12,6 +12,7 @@ A full stack web application to implement a movie review website. It is made wit
 <li>Sequential execution of GET requests from two different databases</li>
 <li>Data from databases formatted and loaded into HTML</li>
 <li>Successfully routed requests from js file to middle-ware.</li>
+<li>Everything gets queried now, no more static jpgs or text.</li>
 </ul>
 
 ### Front-End
@@ -23,7 +24,6 @@ A full stack web application to implement a movie review website. It is made wit
 
 ### Back-End
 - MongoDB
-- Google Cloud
 - The Movie Database
 
 ### Environment
