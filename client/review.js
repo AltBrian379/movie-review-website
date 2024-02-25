@@ -26,7 +26,7 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
         movie_name = TMDB_data.title;
         movie_release = TMDB_data.release_date.slice(0,4);
         movie_synopsis = TMDB_data.overview;
-
+        
     })
 
     await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/credits?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
@@ -90,6 +90,8 @@ getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
 async function getMovieData(url, callback){
     let movie_id;
     let review_array;
+    let verdict;
+    let author;
     console.log(url + " URL paramter");
     await fetch(url).then(res => res.json())
     .then(function(data){
@@ -98,11 +100,41 @@ async function getMovieData(url, callback){
         console.log(data.movie_id)
 
         review_array = data.review;
-
         movie_id = data.movie_id;
+        verdict = data.verdict;
+        author = data.author;
     })
 
     const article = document.getElementById('main-article');
+
+    //This block appends the verdict label;
+    const verdict_title = document.createElement('h3');
+    verdict_title.innerHTML = 'Verdict';
+    article.appendChild(verdict_title);
+    const verdict_label = document.createElement('div');
+    verdict_label.setAttribute('class',`final-verdict verdict-${verdict}`);
+
+    switch (verdict) {
+        case '0':
+            verdict_label.innerHTML = "<h4>I Would Watch it Religiously!</h4>";
+            break;
+        case '1':
+            verdict_label.innerHTML = "<h4>I Would Watch It Again!</h4>";
+            break;
+        case '2':
+            verdict_label.innerHTML = "<h4>Once is Enough</h4>";
+            break;
+        case '3':
+            verdict_label.innerHTML = "<h4>If It's The Only Thing On</h4>";
+            break;
+        case '4':
+            verdict_label.innerHTML = "<h4>I Want My Money Back!</h4>";
+            break;
+    }
+    article.appendChild(verdict_label);
+    article.appendChild(document.createElement('hr'));
+
+
 
     // This block appends the review. 
     review_array.forEach((element, index) => {
