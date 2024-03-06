@@ -9,6 +9,43 @@ const url = new URL(location.href);
 const movie_id = url.searchParams.get("id");
 console.log(movie_id)
 
+returnNewestMovieReviews(APILINK_MOVIE_REVIEWS + "/newest", (movie_id_list) => {
+    const html_new_reviews = document.getElementById('new-reviews-list');
+    movie_id_list.forEach(async (data) => {
+        await fetch(`https://api.themoviedb.org/3/movie/${data.movie_id}?api_key=${MOVIEDB_API_KEY}`).then(res => res.json()).then(function(TMDB_data) {
+            console.log(TMDB_data.poster_path + " Poster path");
+            const movie_poster = IMG_PATH + TMDB_data.poster_path;
+            const movie_name = TMDB_data.title;
+            const movie_release = TMDB_data.release_date.slice(0,4);
+    
+            // Create elements 
+            const image = document.createElement('img');
+            image.setAttribute('alt',`new-movie-review-${movie_name}`)
+    
+            const title = document.createElement('h4');
+            title.setAttribute("class","poster-title");
+    
+            const wrapper = document.createElement('div');
+            wrapper.setAttribute('class','movie-item-small');
+    
+            const anchor = document.createElement('a');
+            anchor.setAttribute('href',`./review.html?id=${data.movie_id}`)
+    
+            // Detailing...
+            image.src = movie_poster;
+            title.innerHTML = movie_name +  " (" + movie_release + ")";
+            
+            anchor.appendChild(image);
+            anchor.appendChild(title);
+
+            wrapper.appendChild(anchor);
+    
+            html_new_reviews.appendChild(wrapper);
+
+        })    
+    })
+});
+
 getMovieData(APILINK_MOVIE_REVIEWS + `/${movie_id}`, async (movie_id) => {
     const html_new_reviews = document.getElementById('new-reviews-list');
     let movie_poster;
@@ -159,4 +196,16 @@ async function getMovieData(url, callback){
 
 
     callback(movie_id);
+}
+
+async function returnNewestMovieReviews(url, callback) {
+    let movie_id;
+    let movie_id_list;
+    console.log(url + " returnNewestMovieReviews");
+    await fetch(url).then(res => res.json())
+    .then(function(data){
+        console.log("This is getting a list of movie reviews: " + JSON.stringify(data) + typeof data);
+        movie_id_list = data;
+    })
+    callback(movie_id_list);
 }
