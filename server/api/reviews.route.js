@@ -16,4 +16,6 @@ router.route("/newest")
 
 router.route("/:movieId")
     .get(ReviewsCtrl.apiGetReview)
+
+
 export default router
